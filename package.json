@@ -2,7 +2,7 @@
   "name": "book-ecommerce",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Elukapalli-Akshitha.github.io/Book-Store-App-Akshitha-Elukapalli",
+  "homepage": "https://Elukapalli-Akshitha.github.io/Book-Store",
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@testing-library/jest-dom": "^5.16.5",

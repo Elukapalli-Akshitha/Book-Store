@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+
 import "./searchResultCard.css";
 import { Link } from 'react-router-dom';
 
