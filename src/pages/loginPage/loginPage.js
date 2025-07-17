@@ -16,19 +16,14 @@ const Login = () => {
                     <div className="container">
                         <div className="content-wrapper">
                             <h2>Login</h2>
-                            <p>Login with email and password.</p>
-
+                            <p>Login with email and password to continue.</p>
                             <AuthForm buttonName="Login" />
-
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
         </>
     );
-}
+};
 
 export default Login;

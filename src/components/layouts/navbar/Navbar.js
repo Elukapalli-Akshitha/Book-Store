@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext  } from "../../../App";
 import { ReactComponent as Cart} from "../../../assests/cart.svg";
 import { getAuth, signOut } from "firebase/auth";
-import  app  from "../../../firebase/Firebase";
+import app from "../../../firebase/Firebase";
 
 const Navbar = ( {darkTheme, darkText}) => {
 

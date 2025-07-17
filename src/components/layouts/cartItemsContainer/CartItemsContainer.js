@@ -26,7 +26,7 @@ const SuccessModal = ({ show, onClose }) => {
 };
 
 const CartItemsContainer = () => {
-  const { cartItems, totalAmount } = useContext(CartContext);
+  const { cartItems, totalAmount, setCartItems } = useContext(CartContext);
   const stripeKey = "pk_test_51NFw2VSAp6x3SV1O018qztSpRMlsy4ApDhEcigM9HaCU5iWTBEsOVnAKdmzABLgtClz8W0uPeP6YS6fVV1fxQLBh00JjbpE6Wf";
   const navigate = useNavigate();
 
@@ -35,6 +35,8 @@ const CartItemsContainer = () => {
   const onToken = (token) => {
     console.log(token);
     setShowModal(true);
+    setCartItems([]); // clear state
+    localStorage.removeItem("cartItems"); // clear localStorage
   };
 
   const handleModalClose = () => {
@@ -46,15 +48,23 @@ const CartItemsContainer = () => {
     <section className="cart-items-container">
       <div className="container">
         {totalAmount === 0 ? (
-          <h2>Currently your Cart is Empty....</h2>
+          <div className="empty-cart-view">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"
+              alt="Empty Cart"
+              className="empty-cart-image"
+            />
+            <h2>Your cart is feeling a bit lonely!</h2>
+            <p>Looks like you haven't added any books yet.</p>
+          </div>
         ) : (
           <>
             <h2>Cart</h2>
             {cartItems.map((item) => (
               <CartItemCard key={item.id} bookData={item} />
             ))}
-            <h2>The Total Amount = &#8377;{totalAmount}</h2>
-            
+            <h2>The Total Amount = ₹{totalAmount}</h2>
+
             <StripeCheckout
               name="Book Checkout"
               description="Please fill in the details below"

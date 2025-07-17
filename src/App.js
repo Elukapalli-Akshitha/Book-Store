@@ -35,7 +35,20 @@ const App = () => {
         setAuthenticatedUser(null);
       }
     });
-  }, [auth]);
+  }, [auth]);  
+
+   // Load cart from localStorage on mount
+   useEffect(() => {
+    const storedCart = localStorage.getItem("cartItems");
+    if (storedCart) {
+      setCartItems(JSON.parse(storedCart));
+    }
+  }, []);
+
+  // Persist cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   // Recalculate the total amount when cart items change
   useEffect(() => {
